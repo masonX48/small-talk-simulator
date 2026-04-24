@@ -116,8 +116,6 @@ export class GeminiLiveClient {
       });
 
       this.stopMic = await startMicCapture((b64) => {
-
-      this.stopMic = await startMicCapture((b64) => {
         if (!this.session) return;
         this.session.sendRealtimeInput({
           audio: { data: b64, mimeType: "audio/pcm;rate=16000" },
