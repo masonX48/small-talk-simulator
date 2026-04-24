@@ -1,24 +1,20 @@
 # Videos
 
-Drop your 3 opener videos in this folder with these exact filenames:
+The app expects these 6 video files, one per interaction:
 
-- `scene1-opener.mp4` — The Elevator (low stakes)
-  - Opener line: "Just us and the Monday energy, huh?"
+## Scene 1 — The Elevator
 
-- `scene2-opener.mp4` — The Kitchen (medium stakes)
-  - Opener line: "This new coffee machine is way better, right?"
+- `scene1-opener.mp4` — Woman holding coffee, says: "Just us and the Monday energy, huh?"
+- `scene1-reaction-good.mp4` — Her reaction after the GOOD answer: "Barely. This is cup number two..."
+- `scene1-reaction-bad.mp4` — Her reaction after the BAD answer: "Mhm." (looks at phone)
 
-- `scene3-opener.mp4` — The Hallway (high stakes, live conversation)
-  - Opener line: "Hi — I don't think we've actually met. Are you enjoying it so far?"
+## Scene 2 — The Party
+
+- `scene2-opener.mp4` — Man at snack table, says: "Okay, I've been circling this table..."
+- `scene2-reaction-good.mp4` — His reaction after the GOOD answer: "Solidarity. I work with him..."
+- `scene2-reaction-bad.mp4` — His reaction after the BAD answer: "Oh cool." (drifts away)
 
 ## Specs
-
-- Format: MP4 (H.264 + AAC)
-- Orientation: vertical 9:16 (720×1280 works great)
-- Duration: 6–10 seconds each
-- Target size: under 5MB each (for fast load on mobile)
-
-## If a file is missing
-
-The app gracefully falls back to a styled placeholder with the scene name and setting,
-so you can test the full flow before all videos are ready.
+- MP4 (H.264 + AAC), vertical 9:16 (720×1280 works great)
+- Openers: 6–10s, reactions: 3–6s
+- Each file under 5 MB ideally
