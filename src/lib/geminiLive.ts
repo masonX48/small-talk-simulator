@@ -82,40 +82,25 @@ export class GeminiLiveClient {
         callbacks: {
           onopen: () => {
             this.setState("listening");
-            // Prompt AI to say first line
-            if (this.opts.firstLine && this.session) {
+            // Trigger the AI to start speaking first.
+            // Gemini Live needs SOME user input to generate — we send a minimal nudge.
+            // The system prompt tells it what to say.
+            if (this.session) {
               try {
                 this.session.sendClientContent({
                   turns: [
                     {
                       role: "user",
-                      parts: [
-                        {
-                          text: `[Start the conversation now. Say exactly: "${this.opts.firstLine}" — then wait for me to respond.]`,
-                        },
-                      ],
+                      parts: [{ text: "." }],
                     },
                   ],
                   turnComplete: true,
                 });
               } catch (e) {
-                console.warn("First line send failed:", e);
+                console.warn("Initial nudge send failed:", e);
               }
             }
           },
-          onmessage: (msg: LiveServerMessage) => this.handleServerMessage(msg),
-          onerror: (e: ErrorEvent) => {
-            console.error("Gemini Live error:", e);
-            this.opts.onError?.(
-              new Error(e.message || "Live connection error")
-            );
-            this.setState("error");
-          },
-          onclose: () => {
-            this.setState("closed");
-          },
-        },
-      });
 
       this.stopMic = await startMicCapture((b64) => {
         if (!this.session) return;
