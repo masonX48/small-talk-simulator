@@ -47,12 +47,12 @@ export function WelcomeScreen({ onBegin }: WelcomeScreenProps) {
           .
         </h1>
         <p className="text-sm text-ink-dim leading-relaxed max-w-[260px]">
-          Two rooms. Two moments. Honest feedback on how you showed up.
+          Three rooms, three moments. Two scripted, one live. Honest feedback at the end.
         </p>
         <div className="flex gap-5 mt-2">
           {[
-            { num: "2", label: "Scenes" },
-            { num: "2", label: "Choices" },
+            { num: "3", label: "Rounds" },
+            { num: "1", label: "Live" },
             { num: "1", label: "Debrief" },
           ].map((item) => (
             <div key={item.label} className="flex flex-col gap-0.5">
