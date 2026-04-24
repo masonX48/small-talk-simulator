@@ -101,6 +101,21 @@ export class GeminiLiveClient {
               }
             }
           },
+          onmessage: (msg: LiveServerMessage) => this.handleServerMessage(msg),
+          onerror: (e: ErrorEvent) => {
+            console.error("Gemini Live error:", e);
+            this.opts.onError?.(
+              new Error(e.message || "Live connection error")
+            );
+            this.setState("error");
+          },
+          onclose: () => {
+            this.setState("closed");
+          },
+        },
+      });
+
+      this.stopMic = await startMicCapture((b64) => {
 
       this.stopMic = await startMicCapture((b64) => {
         if (!this.session) return;
